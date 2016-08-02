@@ -1,0 +1,505 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'MyMaterial'
+  ClientHeight = 566
+  ClientWidth = 860
+  Position = ScreenCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  object TabControl1: TTabControl
+    Align = Client
+    Margins.Left = 10.000000000000000000
+    Margins.Top = 10.000000000000000000
+    Margins.Right = 10.000000000000000000
+    Margins.Bottom = 10.000000000000000000
+    Size.Width = 840.000000000000000000
+    Size.Height = 546.000000000000000000
+    Size.PlatformDefault = False
+    TabIndex = 0
+    TabOrder = 2
+    TabPosition = PlatformDefault
+    Sizes = (
+      840s
+      520s
+      840s
+      520s)
+    object TabItemR: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = True
+      Size.Width = 47.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = #12499#12517#12540
+      ExplicitSize.cx = 47.000000000000000000
+      ExplicitSize.cy = 26.000000000000000000
+      object Viewport3D1: TViewport3D
+        Align = Client
+        Camera = Camera1
+        Color = claDimgray
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Margins.Bottom = 10.000000000000000000
+        Size.Width = 500.000000000000000000
+        Size.Height = 500.000000000000000000
+        Size.PlatformDefault = False
+        UsingDesignCamera = False
+        OnMouseDown = Viewport3D1MouseDown
+        OnMouseMove = Viewport3D1MouseMove
+        OnMouseUp = Viewport3D1MouseUp
+        object Dummy1: TDummy
+          Width = 1.000000000000000000
+          Height = 1.000000000000000000
+          Depth = 1.000000000000000000
+          object Dummy2: TDummy
+            Width = 1.000000000000000000
+            Height = 1.000000000000000000
+            Depth = 1.000000000000000000
+            object Camera1: TCamera
+              AngleOfView = 60.000000000000000000
+              Position.Z = -10.000000000000000000
+              Width = 1.000000000000000000
+              Height = 1.000000000000000000
+              Depth = 1.000000000000000000
+            end
+          end
+        end
+        object Grid3D1: TGrid3D
+          Marks = 4.000000000000000000
+          Frequency = 1.000000000000000000
+          LineColor = x50505050
+          Position.Y = 4.000000000000000000
+          RotationAngle.X = 270.000000000000000000
+          Width = 50.000000000000000000
+          Height = 50.000000000000000000
+          Depth = 0.001000000047497451
+          HitTest = False
+          Quanternion = '(0.707106649875641,0,0,-0.707106947898865)'
+          object Plane1: TPlane
+            Position.Z = 0.001000000047497451
+            Width = 50.000000000000000000
+            Height = 50.000000000000000000
+            Depth = 0.001000000047497451
+            HitTest = False
+          end
+        end
+        object Sphere1: TSphere
+          Width = 8.000000000000000000
+          Height = 8.000000000000000000
+          Depth = 8.000000000000000000
+          HitTest = False
+          SubdivisionsAxes = 50
+          SubdivisionsHeight = 25
+        end
+        object Grid3D2: TGrid3D
+          Marks = 4.000000000000000000
+          Frequency = 1.000000000000000000
+          LineColor = x50505050
+          Position.Z = 20.000000000000000000
+          Width = 50.000000000000000000
+          Height = 50.000000000000000000
+          Depth = 0.001000000047497451
+          HitTest = False
+          object Plane2: TPlane
+            Position.Z = 0.001000000047497451
+            Width = 50.000000000000000000
+            Height = 50.000000000000000000
+            Depth = 0.001000000047497451
+            HitTest = False
+          end
+        end
+        object Camera2: TCamera
+          AngleOfView = 60.000000000000000000
+          Position.Z = -10.000000000000000000
+          Width = 1.000000000000000000
+          Height = 1.000000000000000000
+          Depth = 1.000000000000000000
+        end
+        object Light1: TLight
+          Color = claDimgray
+          LightType = Directional
+          SpotCutOff = 180.000000000000000000
+          RotationAngle.X = 300.000000000000000000
+          Width = 1.000000000000000000
+          Height = 1.000000000000000000
+          Depth = 1.000000000000000000
+          Quanternion = '(-0.50000011920929,0,0,0.866025328636169)'
+        end
+      end
+      object Panel1: TPanel
+        Align = Right
+        Position.X = 520.000000000000000000
+        Size.Width = 320.000000000000000000
+        Size.Height = 520.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'pushpanel'
+        TabOrder = 1
+        object ScrollBar1: TScrollBar
+          Max = 80.000000000000000000
+          Value = 40.000000000000000000
+          SmallChange = 0.000000000000000000
+          Orientation = Horizontal
+          Position.X = 10.000000000000000000
+          Position.Y = 320.000000000000000000
+          Size.Width = 300.000000000000000000
+          Size.Height = 20.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          OnChange = ScrollBar1Change
+        end
+      end
+    end
+    object TabItemS: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 56.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = #12471#12455#12540#12480
+      ExplicitSize.cx = 56.000000000000000000
+      ExplicitSize.cy = 26.000000000000000000
+      object TabControlS: TTabControl
+        Align = Client
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Margins.Bottom = 10.000000000000000000
+        Size.Width = 820.000000000000000000
+        Size.Height = 500.000000000000000000
+        Size.PlatformDefault = False
+        TabIndex = 0
+        TabOrder = 0
+        TabPosition = PlatformDefault
+        Sizes = (
+          820s
+          474s
+          820s
+          474s)
+        object TabItemSV: TTabItem
+          CustomIcon = <
+            item
+            end>
+          IsSelected = True
+          Size.Width = 74.000000000000000000
+          Size.Height = 26.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = ''
+          TabOrder = 0
+          Text = #12496#12540#12486#12483#12463#12473
+          ExplicitSize.cx = 80.000000000000000000
+          ExplicitSize.cy = 26.000000000000000000
+          object MemoV: TMemo
+            Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+            DataDetectorTypes = []
+            Lines.Strings = (
+              
+                '//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$' +
+                '$$$$$$$$$$$$$$$$'#12304#23450#25968#12305
+              ''
+              
+                '//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$' +
+                '$$$$$$$$$$$$$$$$'#12304#35373#23450#12305
+              ''
+              
+                '//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$' +
+                '$$$$$$$$$$$$$$$$'#12304#12523#12540#12481#12531#12305
+              ''
+              
+                '//##############################################################' +
+                '################'
+              ''
+              'struct TSenderV               //'#38914#28857#12398#22793#25968#22411
+              '{'
+              '    float4 Pos :POSITION   ;  //'#20301#32622#65288#12525#12540#12459#12523#65289
+              '    float4 Tan :TANGENT    ;  //'#25509#32218#65288#12525#12540#12459#12523#65289
+              '    float4 Bin :BINORMAL   ;  //'#24467#27861#32218#65288#12525#12540#12459#12523#65289
+              '    float4 Nor :NORMAL     ;  //'#27861#32218#65288#12525#12540#12459#12523#65289
+              '    float4 Tex :TEXCOORD   ;  //'#12486#12463#12473#12481#12515#24231#27161
+              '};'
+              ''
+              'struct TResultV               //'#12501#12521#12464#12513#12531#12488#12398#22793#25968#22411
+              '{'
+              '    float4 Scr :SV_Position;  //'#20301#32622#65288#12473#12463#12522#12540#12531#65289
+              '    float4 Pos :TEXCOORD0  ;  //'#20301#32622#65288#12464#12525#12540#12496#12523#65289
+              '    float4 Tan :TANGENT    ;  //'#25509#32218#65288#12464#12525#12540#12496#12523#65289
+              '    float4 Bin :BINORMAL   ;  //'#24467#27861#32218#65288#12464#12525#12540#12496#12523#65289
+              '    float4 Nor :NORMAL     ;  //'#27861#32218#65288#12464#12525#12540#12496#12523#65289
+              '    float4 Tex :TEXCOORD1  ;  //'#12486#12463#12473#12481#12515#24231#27161
+              '};'
+              ''
+              
+                '////////////////////////////////////////////////////////////////' +
+                '////////////////'
+              ''
+              'TResultV MainV( TSenderV _Sender )'
+              '{'
+              '    TResultV _Result;'
+              ''
+              '    _Result.Scr = mul( _Sender.Pos, _FMatrixMVP );'
+              '    _Result.Pos = mul( _Sender.Pos, _FMatrixMV  );'
+              '    _Result.Tan = mul( _Sender.Tan, _IMatrixMV  );'
+              '    _Result.Bin = mul( _Sender.Bin, _IMatrixMV  );'
+              '    _Result.Nor = mul( _Sender.Nor, _IMatrixMV  );'
+              '    _Result.Tex =      _Sender.Tex               ;'
+              ''
+              '    return _Result;'
+              '}'
+              ''
+              
+                '//##############################################################' +
+                '################'
+              ''
+              '')
+            StyledSettings = [Size, FontColor]
+            TextSettings.Font.Family = #65325#65331' '#12468#12471#12483#12463
+            Align = Client
+            Margins.Left = 10.000000000000000000
+            Margins.Top = 10.000000000000000000
+            Margins.Right = 10.000000000000000000
+            Margins.Bottom = 10.000000000000000000
+            Size.Width = 800.000000000000000000
+            Size.Height = 454.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            Viewport.Width = 780.000000000000000000
+            Viewport.Height = 450.000000000000000000
+          end
+        end
+        object TabItemSP: TTabItem
+          CustomIcon = <
+            item
+            end>
+          IsSelected = False
+          Size.Width = 57.000000000000000000
+          Size.Height = 26.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = ''
+          TabOrder = 0
+          Text = #12500#12463#12475#12523
+          ExplicitSize.cx = 93.000000000000000000
+          ExplicitSize.cy = 26.000000000000000000
+          object MemoP: TMemo
+            Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+            DataDetectorTypes = []
+            Lines.Strings = (
+              
+                '//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$' +
+                '$$$$$$$$$$$$$$$$'#12304#23450#25968#12305
+              ''
+              'static const float Pi = 3.141592653589793;'
+              ''
+              'static const float Pi2 = Pi * 2.0;'
+              ''
+              'static const float P2i = Pi / 2.0;'
+              ''
+              
+                '//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$' +
+                '$$$$$$$$$$$$$$$$'#12304#35373#23450#12305
+              ''
+              'SamplerState _SamplerState {};'
+              ''
+              
+                '//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$' +
+                '$$$$$$$$$$$$$$$$'#12304#12523#12540#12481#12531#12305
+              ''
+              'float Pow2( float X_ )'
+              '{'
+              '    return X_ * X_;'
+              '}'
+              ''
+              'float Roo2( float X_ )'
+              '{'
+              '    return sqrt( X_ );'
+              '}'
+              ''
+              'float2 VectorToSky( float3 Vector_ )'
+              '{'
+              '    float2 _Result;'
+              ''
+              '    _Result.x = ( Pi - atan2( -Vector_.z, -Vector_.x ) ) / Pi2;'
+              '    _Result.y =        acos ( -Vector_.y             )   / Pi ;'
+              ''
+              '    return _Result;'
+              '}'
+              ''
+              'float Fresnel( float3 EyeVec_, float3 NorVec_, float RefI_ )'
+              '{'
+              '    float N = Pow2( RefI_ );'
+              '    float C = dot( EyeVec_, NorVec_ );'
+              '    float G = sqrt( N + Pow2( C ) - 1 );'
+              '    float NC = N * C;'
+              '    return ( Pow2( (  C - G ) / (  C + G ) )'
+              '           + Pow2( ( NC - G ) / ( NC + G ) ) ) / 2;'
+              ''
+              '    /* '#36817#20284
+              '    float R = pow( ( RefI_ - 1 ) / ( RefI_ + 1 ), 2 );'
+              '    float C = dot( EyeVec_, NorVec_ );'
+              '    return R + ( 1 - R ) * pow( 1 - C, 5 );'
+              '    */'
+              '}'
+              ''
+              
+                '//##############################################################' +
+                '################'
+              ''
+              'struct TSenderP               //'#12501#12521#12464#12513#12531#12488#12398#22793#25968#22411
+              '{'
+              '    float4 Scr :SV_Position;  //'#20301#32622#65288#12473#12463#12522#12540#12531#65289
+              '    float4 Pos :TEXCOORD0  ;  //'#20301#32622#65288#12464#12525#12540#12496#12523#65289
+              '    float4 Tan :TANGENT    ;  //'#25509#32218#65288#12464#12525#12540#12496#12523#65289
+              '    float4 Bin :BINORMAL   ;  //'#24467#27861#32218#65288#12464#12525#12540#12496#12523#65289
+              '    float4 Nor :NORMAL     ;  //'#27861#32218#65288#12464#12525#12540#12496#12523#65289
+              '    float4 Tex :TEXCOORD1  ;  //'#12486#12463#12473#12481#12515#24231#27161
+              '};'
+              ''
+              'struct TResultP               //'#12500#12463#12475#12523#12398#22793#25968#22411
+              '{'
+              '    float4 Col :SV_Target  ;  //'#33394
+              '};'
+              ''
+              
+                '////////////////////////////////////////////////////////////////' +
+                '////////////////'
+              ''
+              'TResultP MainP( TSenderP _Sender )'
+              '{'
+              '    TResultP _Result;'
+              ''
+              
+                '    float3 N = normalize( _Sender.Nor.xyz );                    ' +
+                '                //'#34920#38754#27861#32218#65288#12464#12525#12540#12496#12523#65289
+              
+                '    float3 T = normalize( _Sender.Tan.xyz );                    ' +
+                '                //'#34920#38754#25509#32218#65288#12464#12525#12540#12496#12523#65289
+              
+                '    float3 B = normalize( _Sender.Bin.xyz );                    ' +
+                '                //'#34920#38754#24467#27861#32218#65288#12464#12525#12540#12496#12523#65289
+              
+                '    float3 L = -_Light.Dir.xyz;                                 ' +
+                '                //'#20809#32218#26041#21521#65288#12464#12525#12540#12496#12523#65289
+              
+                '    float3 V = normalize( _EyePos.xyz - _Sender.Pos.xyz );      ' +
+                '                //'#35222#32218#26041#21521#65288#12464#12525#12540#12496#12523#65289
+              
+                '    float3 H = normalize( L + V );                              ' +
+                '                //'#12495#12540#12501#12505#12463#12488#12523
+              ''
+              
+                '    //----------------------------------------------------------' +
+                '----------------'
+              ''
+              
+                '    float LD = max( dot( N, L ), 0.0 );                         ' +
+                '                //'#20809#32218#25313#25955#21453#23556#29575
+              ''
+              
+                '    float4 CD = ( _AmbiLight + _Light.Col * LD ) * _DiffRatio;  ' +
+                '                //'#25313#25955#21453#23556#20809
+              ''
+              
+                '    //----------------------------------------------------------' +
+                '----------------'
+              ''
+              
+                '    float LS = pow( max( dot( N, H ), 0.0 ), _SpecShiny );      ' +
+                '                //'#20809#32218#37857#38754#21453#23556#29575
+              ''
+              
+                '    float4 CS = ( _Light.Col * LS ) * _SpecRatio;               ' +
+                '                //'#20809#32218#37857#38754#21453#23556#20809
+              ''
+              
+                '    //----------------------------------------------------------' +
+                '----------------'
+              ''
+              '    _Result.Col = _EmisLight + CD + CS;'
+              ''
+              
+                '    //----------------------------------------------------------' +
+                '----------------'
+              ''
+              '    float4 ProP = mul( float4( 0, 0, 0, 1 ), _ProjMatrix );'
+              '    float4 ProX = mul( float4( 1, 0, 0, 0 ), _ProjMatrix );'
+              '    float4 ProY = mul( float4( 0, 1, 0, 0 ), _ProjMatrix );'
+              '    float4 ProZ = mul( float4( 0, 0, 1, 0 ), _ProjMatrix );'
+              ''
+              '    float4 PV = _Sender.Pos - ProP;'
+              ''
+              '    float PL = dot( PV, ProZ );'
+              ''
+              '    if ( PL > 0 )'
+              '    {'
+              '        PV = PV / PL;'
+              ''
+              '        if ( dot( PV, _Sender.Nor ) < 0 )'
+              '        {'
+              '            float2 S;'
+              '            S.x = dot( PV, ProX ) / tan( _ProjAngleW / 2 );'
+              '            S.y = dot( PV, ProY ) / tan( _ProjAngleH / 2 );'
+              ''
+              '            if ( ( -1 <= S.x ) && ( S.x <= +1 ) &&'
+              '                 ( -1 <= S.y ) && ( S.y <= +1 ) )'
+              '            {'
+              '                S.x = ( S.x + 1 ) / 2;'
+              '                S.y = ( S.y + 1 ) / 2;'
+              ''
+              
+                '                float PD = max( -dot( N, normalize( PV ) ), 0.0 ' +
+                ');'
+              ''
+              
+                '                _Result.Col = _Result.Col + _DiffRatio * _ProjIm' +
+                'age.Sample( _SamplerState, S ) * PD;'
+              '            }'
+              '        }'
+              '    }'
+              ''
+              
+                '    //----------------------------------------------------------' +
+                '----------------'
+              ''
+              '    _Result.Col.a = 1;'
+              ''
+              '    _Result.Col = _Opacity * _Result.Col;'
+              ''
+              '    return _Result;'
+              '}'
+              ''
+              
+                '//##############################################################' +
+                '################'
+              ''
+              ''
+              ''
+              '')
+            StyledSettings = [Size, Style, FontColor]
+            TextSettings.Font.Family = #65325#65331' '#12468#12471#12483#12463
+            Align = Client
+            Margins.Left = 10.000000000000000000
+            Margins.Top = 10.000000000000000000
+            Margins.Right = 10.000000000000000000
+            Margins.Bottom = 10.000000000000000000
+            Size.Width = 800.000000000000000000
+            Size.Height = 454.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            Viewport.Width = 780.000000000000000000
+            Viewport.Height = 450.000000000000000000
+          end
+        end
+      end
+    end
+  end
+end
