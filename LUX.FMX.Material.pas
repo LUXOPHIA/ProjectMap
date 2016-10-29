@@ -176,6 +176,7 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
        function GetSize :Integer; override;
      public
        ///// メソッド
+       function GetVars( var I_,T_:Integer; const U_:Byte ) :TContextShaderVariables; override;
        procedure SendVar( const Context_:TContext3D ); override;
        function GetSource( var C_:Integer; var T_:Integer ) :String; override;
      end;
@@ -328,7 +329,7 @@ const //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
 implementation //############################################################### ■
 
-uses System.SysUtils, System.IOUtils, System.Math;
+uses System.SysUtils, System.IOUtils, System.Math, System.AnsiStrings;
 
 //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【レコード】
 
@@ -607,14 +608,21 @@ end;
 
 /////////////////////////////////////////////////////////////////////// メソッド
 
+function TShaderVarMatrix3D.GetVars( var I_,T_:Integer; const U_:Byte ) :TContextShaderVariables;
+begin
+     Result := [ TContextShaderVariable.Create( Name + '_', Kind, I_, U_ * Size ) ];
+
+     Inc( I_, Size * U_ );
+end;
+
 procedure TShaderVarMatrix3D.SendVar( const Context_:TContext3D );
 begin
-     Context_.SetShaderVariable( _Name, _Value );
+     Context_.SetShaderVariable( _Name + '_', _Value );
 end;
 
 function TShaderVarMatrix3D.GetSource( var C_:Integer; var T_:Integer ) :String;
 begin
-     Result := 'float4x4 ' + _Name + ' : register( c' + c_.ToString + ' );' + CRLF;
+     Result := 'float4x4 ' + _Name + '_ : register( c' + c_.ToString + ' );  static float4x4 ' + _Name + ' = transpose( ' + _Name + '_ );' + CRLF;
 
      Inc( c_, Size );
 end;
@@ -824,12 +832,12 @@ end;
 
 procedure TShaderSource.Compile;
 var
-   S, N, T :AnsiString;
+   S, N, T, Cs :AnsiString;
    CSSs :array of TContextShaderSource;
    A :TContextShaderArch;
    H :HResult;
    B, E :ID3DBlob;
-   C :TArray<Byte>;
+   Bs :TArray<Byte>;
 begin
      TShaderManager.UnregisterShader( _Shader );
 
@@ -858,15 +866,19 @@ begin
 
           if not Assigned( B ) then
           begin
-               _Errors.Add( T, AnsiString( E.GetBufferPointer ) );
+               SetLength( Cs, E.GetBufferSize );
+
+               System.AnsiStrings.StrCopy( PAnsiChar( Cs ), E.GetBufferPointer );
+
+               _Errors.Add( T, Cs );
 
                Exit;
           end;
 
-          SetLength( C, B.GetBufferSize );
-          Move( B.GetBufferPointer^, C[0], B.GetBufferSize );
+          SetLength( Bs, B.GetBufferSize );
+          Move( B.GetBufferPointer^, Bs[0], B.GetBufferSize );
 
-          CSSs := CSSs + [ TContextShaderSource.Create( A, C, GetVars( A ) ) ];
+          CSSs := CSSs + [ TContextShaderSource.Create( A, Bs, GetVars( A ) ) ];
      end;
 
      _Shader := TShaderManager.RegisterShaderFromData( _Name, GetKind, '', CSSs );
