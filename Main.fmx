@@ -141,6 +141,7 @@ object Form1: TForm1
             Depth = 1.000000000000000000
             object Camera2: TCamera
               AngleOfView = 60.000000000000000000
+              Position.Z = -5.000000000000000000
               Width = 1.000000000000000000
               Height = 1.000000000000000000
               Depth = 1.000000000000000000
@@ -322,12 +323,6 @@ object Form1: TForm1
                 '//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$' +
                 '$$$$$$$$$$$$$$$$'#12304#23450#25968#12305
               ''
-              'static const float Pi = 3.141592653589793;'
-              ''
-              'static const float Pi2 = Pi * 2.0;'
-              ''
-              'static const float P2i = Pi / 2.0;'
-              ''
               
                 '//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$' +
                 '$$$$$$$$$$$$$$$$'#12304#35373#23450#12305
@@ -337,42 +332,6 @@ object Form1: TForm1
               
                 '//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$' +
                 '$$$$$$$$$$$$$$$$'#12304#12523#12540#12481#12531#12305
-              ''
-              'float Pow2( float X_ )'
-              '{'
-              '    return X_ * X_;'
-              '}'
-              ''
-              'float Roo2( float X_ )'
-              '{'
-              '    return sqrt( X_ );'
-              '}'
-              ''
-              'float2 VectorToSky( float3 Vector_ )'
-              '{'
-              '    float2 _Result;'
-              ''
-              '    _Result.x = ( Pi - atan2( -Vector_.z, -Vector_.x ) ) / Pi2;'
-              '    _Result.y =        acos ( -Vector_.y             )   / Pi ;'
-              ''
-              '    return _Result;'
-              '}'
-              ''
-              'float Fresnel( float3 EyeVec_, float3 NorVec_, float RefI_ )'
-              '{'
-              '    float N = Pow2( RefI_ );'
-              '    float C = dot( EyeVec_, NorVec_ );'
-              '    float G = sqrt( N + Pow2( C ) - 1 );'
-              '    float NC = N * C;'
-              '    return ( Pow2( (  C - G ) / (  C + G ) )'
-              '           + Pow2( ( NC - G ) / ( NC + G ) ) ) / 2;'
-              ''
-              '    /* '#36817#20284
-              '    float R = pow( ( RefI_ - 1 ) / ( RefI_ + 1 ), 2 );'
-              '    float C = dot( EyeVec_, NorVec_ );'
-              '    return R + ( 1 - R ) * pow( 1 - C, 5 );'
-              '    */'
-              '}'
               ''
               
                 '//##############################################################' +
@@ -467,7 +426,7 @@ object Form1: TForm1
               '    {'
               '        PV = PV / PL;'
               ''
-              '        if ( dot( PV, _Sender.Nor ) < 0 )'
+              '        if ( dot( PV, N ) < 0 )'
               '        {'
               '            float2 S;'
               '            S.x = dot( PV, ProX ) / tan( _ProjAngleW / 2 );'
@@ -504,9 +463,6 @@ object Form1: TForm1
               
                 '//##############################################################' +
                 '################'
-              ''
-              ''
-              ''
               '')
             StyledSettings = [Size, Style, FontColor]
             TextSettings.Font.Family = #65325#65331' '#12468#12471#12483#12463
