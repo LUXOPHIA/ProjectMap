@@ -17,7 +17,7 @@
     float4 ProZ = mul( float4( 0, 0, 1, 0 ), _ProjMatrix );
 ```
 
-次に、プロジェクタ位置 P から 物体表面座標 _Sender.Pos へ向かう光線方向 PV を計算。
+次に、プロジェクタ位置 P から 表面座標 _Sender.Pos へ向かう光線方向 PV を計算。
 
 ```
     float4 PV = _Sender.Pos - ProP;
@@ -34,12 +34,12 @@
     }
 ```
 
-光線方向 PV と 物体表面法線 _Sender.Nor との内積がゼロ以上であれば、裏側からの照射なので無効。
+光線方向 PV と 表面法線 N との内積がゼロ以上であれば、裏側からの照射なので無効。
 
 ```
         PV = PV / PL;
 
-        if ( dot( PV, _Sender.Nor ) < 0 )
+        if ( dot( PV, N ) < 0 )
         {
             ～
         }
@@ -71,7 +71,7 @@
 
 ```
 
-光線 PV と 物体表面法線 N との内積で、ランバート反射率 PD を計算。
+光線 PV と 表面法線 N との内積で、ランバート反射率 PD を計算。
 
 ```
                 float PD = max( -dot( N, normalize( PV ) ), 0.0 );
