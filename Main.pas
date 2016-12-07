@@ -8,7 +8,7 @@ uses
   System.Math.Vectors,
   FMX.Types3D, FMX.ScrollBox, FMX.Memo, FMX.Controls.Presentation,
   FMX.StdCtrls, FMX.Controls3D, FMX.Objects3D, FMX.Viewport3D, FMX.TabControl,
-  LUX, LUX.FMX,
+  LUX, LUX.FMX, LUX.FMX.TTrueViewport3D,
   LIB.Material;
 
 type
@@ -20,7 +20,9 @@ type
           Dummy1: TDummy;
             Dummy2: TDummy;
               Camera1: TCamera;
-          Camera2: TCamera;
+          Dummy3: TDummy;
+            Dummy4: TDummy;
+              Camera2: TCamera;
           Grid3D1: TGrid3D;
             Plane1: TPlane;
           Grid3D2: TGrid3D;
@@ -33,7 +35,8 @@ type
         TabItemSP: TTabItem;
           MemoP: TMemo;
     Panel1: TPanel;
-    ScrollBar1: TScrollBar;
+      Viewport3D2: TTrueViewport3DFrame;
+      ScrollBar1: TScrollBar;
     procedure FormCreate(Sender: TObject);
     procedure Viewport3D1MouseDown(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Single);
     procedure Viewport3D1MouseMove(Sender: TObject; Shift: TShiftState; X, Y: Single);
@@ -44,10 +47,8 @@ type
     procedure ScrollBar1Change(Sender: TObject);
   private
     { private 宣言 }
-    Viewport3D2 :TLuxViewport3D;
-    _MouseS     :TShiftState;
-    _MouseP     :TPointF;
-    _MouseA     :TPointF;
+    _MouseS :TShiftState;
+    _MouseP :TPointF;
   public
     { public 宣言 }
     _Material :TMyMaterialSource;
@@ -70,29 +71,13 @@ uses System.Math;
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
-     Viewport3D2 := TLuxViewport3D.Create( Self );
-
      with Viewport3D2 do
      begin
-          Parent      := Panel1;
-
-          Camera      := Camera2;
-
-          Width       := 300;
-          Height      := 300;
-          Position.X  := 10;
-          Position.Y  := 10;
-
-          Color       := TAlphaColors.Dimgray;
-
-          OnMouseDown := Viewport3D2MouseDown;
-          OnMouseMove :=Viewport3D2MouseMove;
-          OnMouseUp   := Viewport3D2MouseUp  ;
+          Camera := Camera2;
+          Color  := TAlphaColors.Dimgray;
      end;
 
      _MouseS := [];
-     _MouseP := TPointF.Zero;
-     _MouseA := TPointF.Zero;
 
      _Material := TMyMaterialSource.Create( Self );
 
@@ -116,7 +101,7 @@ begin
      Plane2 .MaterialSource := _Material;
      Sphere1.MaterialSource := _Material;
 
-     Viewport3D2.RebuildRenderingList;
+     Viewport3D2.RebuildRenderingList;  // Camera2 の所属する Viewport3D1 内のオブジェクト構造が変わる度に呼ぶ必要あり。
 end;
 
 //------------------------------------------------------------------------------
@@ -165,11 +150,8 @@ begin
      begin
           P := TPointF.Create( X, Y );
 
-          _MouseA := _MouseA + ( P - _MouseP );
-
-          Camera2.LocalMatrix := TMatrix3D.CreateRotationX( +DegToRad( _MouseA.Y / 4 ) )
-                               * TMatrix3D.CreateRotationY( -DegToRad( _MouseA.X / 4 ) )
-                               * TMatrix3D.CreateTranslation( TPoint3D.Create( 0, 0, -10 ) );
+          with Dummy3.RotationAngle do Y := Y - ( P.X - _MouseP.X ) / 4;
+          with Dummy4.RotationAngle do X := X + ( P.Y - _MouseP.Y ) / 4;
 
           _Material.ProjMatrix := Camera2.AbsoluteMatrix;
 

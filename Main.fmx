@@ -56,13 +56,17 @@ object Form1: TForm1
         OnMouseMove = Viewport3D1MouseMove
         OnMouseUp = Viewport3D1MouseUp
         object Dummy1: TDummy
+          RotationAngle.Y = 330.000000000000000000
           Width = 1.000000000000000000
           Height = 1.000000000000000000
           Depth = 1.000000000000000000
+          Quanternion = '(0,0.258819133043289,0,-0.965925812721252)'
           object Dummy2: TDummy
+            RotationAngle.X = 330.000000000000000000
             Width = 1.000000000000000000
             Height = 1.000000000000000000
             Depth = 1.000000000000000000
+            Quanternion = '(0.258819133043289,0,0,-0.965925812721252)'
             object Camera1: TCamera
               AngleOfView = 60.000000000000000000
               Position.Z = -10.000000000000000000
@@ -116,13 +120,6 @@ object Form1: TForm1
             HitTest = False
           end
         end
-        object Camera2: TCamera
-          AngleOfView = 60.000000000000000000
-          Position.Z = -10.000000000000000000
-          Width = 1.000000000000000000
-          Height = 1.000000000000000000
-          Depth = 1.000000000000000000
-        end
         object Light1: TLight
           Color = claDimgray
           LightType = Directional
@@ -132,6 +129,23 @@ object Form1: TForm1
           Height = 1.000000000000000000
           Depth = 1.000000000000000000
           Quanternion = '(-0.50000011920929,0,0,0.866025328636169)'
+        end
+        object Dummy3: TDummy
+          Position.Z = -10.000000000000000000
+          Width = 1.000000000000000000
+          Height = 1.000000000000000000
+          Depth = 1.000000000000000000
+          object Dummy4: TDummy
+            Width = 1.000000000000000000
+            Height = 1.000000000000000000
+            Depth = 1.000000000000000000
+            object Camera2: TCamera
+              AngleOfView = 60.000000000000000000
+              Width = 1.000000000000000000
+              Height = 1.000000000000000000
+              Depth = 1.000000000000000000
+            end
+          end
         end
       end
       object Panel1: TPanel
@@ -144,7 +158,7 @@ object Form1: TForm1
         TabOrder = 1
         object ScrollBar1: TScrollBar
           Max = 80.000000000000000000
-          Value = 40.000000000000000000
+          Value = 20.000000000000000000
           SmallChange = 0.000000000000000000
           Orientation = Horizontal
           Position.X = 10.000000000000000000
@@ -154,6 +168,16 @@ object Form1: TForm1
           Size.PlatformDefault = False
           TabOrder = 0
           OnChange = ScrollBar1Change
+        end
+        inline Viewport3D2: TTrueViewport3DFrame
+          Position.X = 10.000000000000000000
+          Position.Y = 10.000000000000000000
+          Size.Width = 300.000000000000000000
+          Size.Height = 300.000000000000000000
+          Size.PlatformDefault = False
+          OnMouseDown = Viewport3D2MouseDown
+          OnMouseMove = Viewport3D2MouseMove
+          OnMouseUp = Viewport3D2MouseUp
         end
       end
     end

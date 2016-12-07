@@ -2,6 +2,8 @@
 
 
 
+
+
 uses
   System.StartUpCopy,
   FMX.Forms,
@@ -12,7 +14,8 @@ uses
   LUX.FMX in '_LIBRARY\LUXOPHIA\LUX.FMX\LUX.FMX.pas',
   LUX.D3 in '_LIBRARY\LUXOPHIA\LUX\LUX.D3.pas',
   LUX.D1 in '_LIBRARY\LUXOPHIA\LUX\LUX.D1.pas',
-  LUX.D2 in '_LIBRARY\LUXOPHIA\LUX\LUX.D2.pas';
+  LUX.D2 in '_LIBRARY\LUXOPHIA\LUX\LUX.D2.pas',
+  LUX.FMX.TTrueViewport3D in '_LIBRARY\LUXOPHIA\LUX.FMX\LUX.FMX.TTrueViewport3D.pas' {TrueViewport3DFrame: TFrame};
 
 {$R *.res}
 
