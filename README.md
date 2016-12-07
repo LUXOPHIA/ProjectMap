@@ -1,4 +1,4 @@
-![](https://bytebucket.org/LUXOPHIA/projectmap/raw/e5fe0b401259a7f24bdf5d1a34464968ddbfa37a/--------/_SCREENSHOT/ProjectMap.png)
+![](https://bytebucket.org/LUXOPHIA/projectmap/raw/171bee704242255fb97dfaa53bcb402561134cf8/--------/_SCREENSHOT/ProjectMap.png)
 
 # ﻿ProjectMap #
 
@@ -83,3 +83,7 @@
 ```
                 _Result.Col = _Result.Col + _DiffRatio * _ProjImage.Sample( _SamplerState, S ) * PD;
 ```
+
+ランバート反射率 PD を無視すれば、輝度変化のない投影も可能。
+
+![](https://bytebucket.org/LUXOPHIA/projectmap/raw/171bee704242255fb97dfaa53bcb402561134cf8/--------/_SCREENSHOT/ProjectMap-NonDiffuse.png)
