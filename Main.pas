@@ -14,7 +14,7 @@ uses
 type
   TForm1 = class(TForm)
     TabControl1: TTabControl;
-      TabItemR: TTabItem;
+      TabItemV: TTabItem;
         Viewport3D1: TViewport3D;
           Light1: TLight;
           Dummy1: TDummy;
@@ -28,12 +28,20 @@ type
           Grid3D2: TGrid3D;
             Plane2: TPlane;
           Sphere1: TSphere;
-    TabItemS: TTabItem;
-      TabControlS: TTabControl;
-        TabItemSV: TTabItem;
-          MemoV: TMemo;
-        TabItemSP: TTabItem;
-          MemoP: TMemo;
+      TabItemS: TTabItem;
+        TabControlS: TTabControl;
+          TabItemSV: TTabItem;
+            TabControlSV: TTabControl;
+              TabItemSVC: TTabItem;
+                MemoSVC: TMemo;
+              TabItemSVE: TTabItem;
+                MemoSVE: TMemo;
+          TabItemSP: TTabItem;
+            TabControlSP: TTabControl;
+              TabItemSPC: TTabItem;
+                MemoSPC: TMemo;
+              TabItemSPE: TTabItem;
+                MemoSPE: TMemo;
     Panel1: TPanel;
       Viewport3D2: TTrueViewport3DFrame;
       ScrollBar1: TScrollBar;
@@ -70,6 +78,8 @@ uses System.Math;
 //&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 
 procedure TForm1.FormCreate(Sender: TObject);
+var
+   T :String;
 begin
      with Viewport3D2 do
      begin
@@ -83,8 +93,33 @@ begin
 
      with _Material do
      begin
-          ShaderV.Source.Text := MemoV.Text;
-          ShaderP.Source.Text := MemoP.Text;
+          with ShaderV do
+          begin
+               Source.Text := MemoSVC.Text;
+
+               for T in Errors.Keys do
+               begin
+                    with MemoSVE.Lines do
+                    begin
+                         Add( '▼ ' + T   );
+                         Add( Errors[ T ] );
+                    end;
+               end;
+          end;
+
+          with ShaderP do
+          begin
+               Source.Text := MemoSPC.Text;
+
+               for T in Errors.Keys do
+               begin
+                    with MemoSPE.Lines do
+                    begin
+                         Add( '▼ ' + T   );
+                         Add( Errors[ T ] );
+                    end;
+               end;
+          end;
 
           EmisLight  := TAlphaColorF.Create( 0, 0, 0 );
           AmbiLight  := TAlphaColorF.Create( 0, 0, 0 );
